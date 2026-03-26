@@ -1,18 +1,19 @@
+
 services:
   - type: web
     name: crowdguard-backend
     runtime: python
-    rootDir: backend
+    rootDir: crowd-guard/backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
       - key: MONGO_URL
-        sync: false   # set manually in Render dashboard
+        sync: false
       - key: DB_NAME
         value: crowdguard
       - key: JWT_SECRET
-        sync: false   # set manually in Render dashboard
+        sync: false
       - key: FRONTEND_URL
-        sync: false   # set to your Vercel URL after deploying frontend
+        sync: false
